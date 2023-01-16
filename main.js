@@ -64,7 +64,7 @@ function addStar() {
 
 Array(200).fill().forEach(addStar);
 
-const spaceTexture = new THREE.TextureLoader().load('./assets/space.png');
+const spaceTexture = new THREE.TextureLoader().load('/azhan3/azhan3/assets/space.png');
 scene.background = spaceTexture;
 
 
@@ -72,7 +72,7 @@ const loader = new GLTFLoader();
 
 var volleyball;
 
-loader.load( '/assets/voleyball.glb', function ( gltf ) {
+loader.load( '/azhan3/assets/voleyball.glb', function ( gltf ) {
   volleyball = gltf.scene;
 	//scene.add( volleyball);
 
@@ -84,7 +84,7 @@ loader.load( '/assets/voleyball.glb', function ( gltf ) {
 
 
 var world;
-loader.load( '/assets/world.glb', function ( gltf ) {
+loader.load( '/azhan3/assets/world.glb', function ( gltf ) {
   world = gltf.scene;
   world.position.set(10, 25, 5);
   world.scale.set(2, 2, 2)
@@ -108,7 +108,7 @@ var windmill;
 
 
 var duck;
-loader.load( '/assets/Duck.glb', function ( gltf ) {
+loader.load( '/azhan3/assets/Duck.glb', function ( gltf ) {
   duck = gltf.scene;
   duck.position.set(100, 0, -100);
   duck.scale.set(15, 15, 15);
@@ -160,7 +160,7 @@ function moveCamera(){
   if (t < -625 && (prevT - t) > 0 && !About_me_boundary) {
     About_me_boundary = true;
     console.log("YESSS");
-    loader.load( '/assets/windmill.glb', function ( gltf ) {
+    loader.load( '/azhan3/assets/windmill.glb', function ( gltf ) {
       windmill = gltf.scene;
       windmill.name = "windmill";
       windmill.position.set(28, 49, 100);
