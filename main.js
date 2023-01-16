@@ -28,8 +28,6 @@ const material = new THREE.MeshStandardMaterial( {color: 0xFF6374} );
 
 const torus = new THREE.Mesh(geometry, material);
 
-//scene.add(torus);
-
 
 var pointslights = [];
 const pointLight = new THREE.PointLight(0xF8FFBF);
@@ -64,7 +62,7 @@ function addStar() {
 
 Array(200).fill().forEach(addStar);
 
-const spaceTexture = new THREE.TextureLoader().load('/azhan3/azhan3/assets/space.png');
+const spaceTexture = new THREE.TextureLoader().load('/azhan3/assets/space.png');
 scene.background = spaceTexture;
 
 
