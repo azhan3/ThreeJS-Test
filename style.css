@@ -1,4 +1,5 @@
 @import url("https://use.typekit.net/jmk3xov.css");
+
 html {
   scroll-behavior: smooth;
 }
@@ -8,15 +9,15 @@ canvas {
   left: 0;
 }
 
+
 :root {
   /*--dark-bg: rgba(15, 15, 15, 0.95);*/
   --spacing: 350px;
 
-  font-family: brandon-grotesque, sans-serif;
+  font-family: Montserrat, sans-serif;
   font-weight: 400;
   font-style: normal;
 }
-
 
 main {
   width: 100vw;
@@ -32,7 +33,7 @@ main {
 }
 
 h1, h2, h3, blockquote {
-  font-family: elevon, sans-serif;
+  font-family: Montserrat, sans-serif;
   font-weight: 700;
   font-style: normal;
 }
@@ -44,15 +45,23 @@ canvas {
 }
 
 
+  #monos {
+    font: 2em monospace; /* for example: the height of the letters is now 15 pixels */
+  }
+
 
   header {
     text-align: center; 
-    background: var(--dark-bg);
-    grid-column: 1 / span 5;
+    color: rgb(219, 219, 219);
+    margin-top: -2em;
+    grid-column: 3 / 7;
     font-size: 2.5rem;
     position:relative;
     margin-bottom: var(--spacing);
-    
+    background-color: #002531ea;
+    border-radius: 2em;
+    height: 15em;
+    width: 15em;
   }
 
   section {
@@ -81,9 +90,12 @@ canvas {
 
   .left {
     margin-top: 35em;
-    background-color: #009dd152;
-    border-radius: 80px;
-    grid-column: 1 / 5;
+    background-color: #002531bd;
+    border-radius: 50px;
+    grid-column: 1 / 9;
+    text-align: center;
+    height: 25em;
+    grid-column: 2 / 8;
   }
 
 
@@ -109,31 +121,165 @@ li:hover {
 li:active {
     transform: scale(0.9);
 }
-nav ul li {
 
-    color: rgb(255, 255, 255);
-    border-radius: 100px;
-    background-color: #e6e6e6;
-    padding: 1px;
-    width: 350px;
-    height: 50px;
-    margin-bottom: 0.5em;
-    margin-left: 3em;
-    cursor: pointer;
-}
-li:hover a {
-  color: inherit;
-}
-nav a {
-    color: rgb(0, 0, 0);
-    text-decoration: none;
-}
-
-nav a:hover {
-    color: #ffffff;
-}
 
 nav li {
   
     padding: 20px;
 }
+
+
+/* CSS */
+.button-64 {
+  align-items: center;
+  background-image: linear-gradient(144deg,#3538db, #2e8dc4 50%,#005766);
+  border: 0;
+  border-radius: 16px;
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  box-sizing: border-box;
+  color: rgb(219, 219, 219);
+  display: flex;
+  font-family: Phantomsans, sans-serif;
+  font-size: 20px;
+  justify-content: center;
+  line-height: 1em;
+  width: 15em;
+  margin-bottom: .5em;
+  max-width: 100%;
+  min-width: 140px;
+  padding: 3px;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.button-64:active,
+.button-64:hover {
+  outline: 0;
+}
+
+.button-64 span {
+  background-color: rgb(5, 6, 45);
+  padding: 16px 24px;
+  border-radius: 12px;
+  width: 100%;
+  height: 100%;
+  transition: 350ms;
+}
+
+.button-64:hover span {
+  background: none;
+}
+
+@media (min-width: 768px) {
+  .button-64 {
+    font-size: 24px;
+    min-width: 196px;
+  }
+}
+@-ms-viewport{
+  width: 1920px;
+  }
+
+
+  .container {
+    position: relative;
+    height: 300px;
+    width: 1200px;
+    top: 60px;
+
+    left: -12em;
+    display: flex;
+  }
+  
+  .card {
+    display: flex;
+    height: 500px;
+    width: 350px;
+    background-color: #002638da;
+    border-radius: 10px;
+    box-shadow: -1rem 0 3rem #000;
+  /*   margin-left: -50px; */
+    transition: 0.4s ease-out;
+    position: relative;
+    left: 0px;
+  }
+  
+  .card:not(:first-child) {
+      margin-left: -50px;
+  }
+  
+  .card:hover {
+    transform: translateY(-20px);
+    transition: 0.4s ease-out;
+  }
+  
+  .card:hover ~ .card {
+    position: relative;
+    left: 50px;
+    transition: 0.4s ease-out;
+  }
+  
+  .title {
+    color: white;
+    font-weight: 300;
+    position: absolute;
+    left: 20px;
+    top: 15px;
+  }
+  
+  .bar {
+    position: absolute;
+    top: 100px;
+    left: 20px;
+    height: 5px;
+    width: 150px;
+  }
+  
+  .emptybar {
+    background-color: #2e3033;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .filledbar {
+    position: absolute;
+    top: 0px;
+    z-index: 3;
+    width: 0px;
+    height: 100%;
+    background: rgb(0,154,217);
+    background: linear-gradient(90deg, rgb(0, 45, 84) 0%, rgb(0, 81, 90) 65%, rgb(94, 228, 255) 100%);
+    transition: 0.6s ease-out;
+  }
+  
+  .card:hover .filledbar {
+    width: 120px;
+    transition: 0.4s ease-out;
+  }
+  
+  .circle {
+    position: absolute;
+    top: 150px;
+    left: calc(50% - 60px);
+  }
+  
+  .stroke {
+    stroke: white;
+    stroke-dasharray: 360;
+    stroke-dashoffset: 360;
+    transition: 0.6s ease-out;
+  }
+  
+  svg {
+    fill: #17141d;
+    stroke-width: 2px;
+  }
+  
+  .card:hover .stroke {
+    stroke-dashoffset: 100;
+    transition: 0.6s ease-out;
+  }

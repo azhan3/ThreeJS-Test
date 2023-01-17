@@ -18,9 +18,9 @@ renderer.setPixelRatio(window.devicePixelRatio);
 
 renderer.setSize(window.innerWidth, window.innerHeight);
 
+history.scrollRestoration = 'manual';
 
-
-renderer.render(scene, camera);
+//renderer.render(scene, camera);
 
 const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
 
@@ -45,7 +45,7 @@ ambientLight.intensity = 0.5;
 
 const lightHelper = new THREE.PointLightHelper(pointLight);
 const gridHelper = new THREE.GridHelper(200, 50);
-scene.add(gridHelper, ambientLight, lightHelper);
+scene.add(ambientLight, lightHelper);
 
 
 const controls = new OrbitControls(camera, renderer.domElement);
@@ -60,9 +60,9 @@ function addStar() {
   scene.add(star);
 }
 
-Array(200).fill().forEach(addStar);
+//Array(200).fill().forEach(addStar);
 
-const spaceTexture = new THREE.TextureLoader().load('assets/space.png');
+const spaceTexture = new THREE.TextureLoader().load('assets/space1.png');
 scene.background = spaceTexture;
 
 
@@ -111,7 +111,7 @@ loader.load( 'assets/Duck.glb', function ( gltf ) {
   duck.position.set(100, 0, -100);
   duck.scale.set(15, 15, 15);
   duck.rotation.y = -90;
-  scene.add( duck );
+  //scene.add( duck );
 
 }, undefined, function ( error ) {
 
@@ -137,8 +137,10 @@ function animate() {
 
 
   //world.rotation.y += 0.01;
-
-
+  if (world) {
+    world.rotation.y += 0.001;
+  }
+  
   renderer.render(scene, camera);
 }
 animate();
@@ -150,6 +152,10 @@ function removeEntity(object) {
   animate();
 }
 
+const pointLight_Windmill = new THREE.PointLight(0xF8FFBF);
+pointLight_Windmill.position.set(28, 65, 100);
+pointLight_Windmill.intensity = 0.75;
+scene.add(pointLight_Windmill);
 var prevT = 0;
 var About_me_boundary = false;
 function moveCamera(){
@@ -162,7 +168,7 @@ function moveCamera(){
       windmill = gltf.scene;
       windmill.name = "windmill";
       windmill.position.set(28, 49, 100);
-      windmill.scale.set(8, 8, 8);
+      windmill.scale.set(9, 9, 9);
       scene.add( windmill );
     
     }, undefined, function ( error ) {
